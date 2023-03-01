@@ -1,8 +1,8 @@
 ---
 layout: base
 eleventyNavigation:
-  key: Imprint
+  key: the lab
   hideInMainNav: true
 ---
 
-Add your imprint / contact info here.
+Add your privacy info here.

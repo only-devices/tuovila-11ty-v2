@@ -1,4 +1,26 @@
 /* via https://getbootstrap.com/docs/5.0/examples/jumbotron/ */
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+body {
+  font-family: 'Oswald', serif;
+}
+
+.wave {
+  animation: shake 2s;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(40deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.footer-nav {
+  text-decoration: none;
+  color: var(--primary-color);
+  border-radius: var(--border-radius);
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;

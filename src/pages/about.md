@@ -1,7 +1,7 @@
 ---
 layout: base
 eleventyNavigation:
-  key: About
+  key: about
   order: 1
 ---
 

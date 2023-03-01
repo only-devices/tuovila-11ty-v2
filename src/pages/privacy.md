@@ -1,7 +1,7 @@
 ---
 layout: base
 eleventyNavigation:
-  key: Privacy
+  key: privacy
   hideInMainNav: true
 ---
 
