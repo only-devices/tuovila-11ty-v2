@@ -14,7 +14,7 @@ console.log('pathPrefix is set to ...', pathPrefix);
 // see "eleventyConfig.addGlobalData("site", globalData);"" below
 // related: https://github.com/11ty/eleventy/issues/1641
 const globalSiteData = {
-  title: "tuovila.com",
+  title: "hello!",
   description: "eric tuovila's personal website",
   locale: 'en',
   baseUrl: baseUrl,

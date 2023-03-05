@@ -9,6 +9,11 @@ body {
   animation-iteration-count: 2;
 }
 
+.img-avatar {
+  border-radius: 50%;
+  padding: 0px 20% 0px;
+}
+
 @keyframes shake {
   0% { transform: rotate(0deg); }
   50% { transform: rotate(40deg); }
