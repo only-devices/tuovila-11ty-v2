@@ -59,6 +59,9 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 
 module.exports = function (eleventyConfig) {
 
+  // Heroicons -- https://libraries.io/npm/@cdransf%2Feleventy-plugin-heroicons
+  eleventyConfig.addPlugin(require("@cdransf/eleventy-plugin-heroicons"));
+
   // Set site title
   eleventyConfig.addGlobalData("site", globalSiteData);
 

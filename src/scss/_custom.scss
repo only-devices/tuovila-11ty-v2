@@ -4,10 +4,24 @@ body {
   display:block !important;
 }
 
+/* Dark mode styling */
 .dark {
   color: #f9f9f9 !important;
   background-color: #222 !important;
   border-color: #f9f9f9 !important;
+}
+
+/* Heroicon styling */
+[data-heroicon-style="outline"] {
+  width: 20px;
+}
+
+[data-heroicon-style="solid"] {
+  width: 20px;
+}
+
+[data-heroicon-name] {
+  padding-bottom: 4px;
 }
 
 /* The switch - the box around the slider */
