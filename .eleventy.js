@@ -14,7 +14,7 @@ console.log('pathPrefix is set to ...', pathPrefix);
 // see "eleventyConfig.addGlobalData("site", globalData);"" below
 // related: https://github.com/11ty/eleventy/issues/1641
 const globalSiteData = {
-  title: "hello!",
+  title: "tuovila.com",
   description: "eric tuovila's personal website",
   locale: 'en',
   baseUrl: baseUrl,
@@ -110,6 +110,6 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
     // important for github pages build (subdirectory):
-    pathPrefix: pathPrefix
+    //pathPrefix: pathPrefix
   };
 };
