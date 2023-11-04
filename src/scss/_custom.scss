@@ -1,8 +1,7 @@
-/* via https://getbootstrap.com/docs/5.0/examples/jumbotron/ */
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
-
 body {
   font-family: 'Oswald', serif;
+  display:block !important;
 }
 
 .dark {
@@ -51,11 +50,11 @@ body {
 }
 
 input:checked + .slider {
-  background-color: orangered;
+  background-color: orangered !important;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px orangered;
+  box-shadow: 0 0 1px orangered !important;
 }
 
 input:checked + .slider:before {
