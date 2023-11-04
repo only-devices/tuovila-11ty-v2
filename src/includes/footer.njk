@@ -1,7 +1,12 @@
 <footer class="container">
-  <p class="float-end"><a href="#">Back to top</a></p>
+  <p class="float-end">
+    <label class="switch">
+    <input id="mode-toggle" type="checkbox" onclick="darkToggle()">
+    <span class="slider round"></span>
+    </label>
+  </p>
   <p>
-    <a class="footer-nav" href="https://github.com/mandrasch/11ty-plain-bootstrap5">Powered by 11ty-plain-bootstrap5</a> · <a class="footer-nav" href="{{ '/pages/privacy' | url }}">privacy</a> ·
-    <a class="footer-nav" href="{{ '/pages/testing/main-testing' | url }}">the lab</a>
+    <a class="footer-nav" href="https://github.com/mandrasch/11ty-plain-bootstrap5" align="right">Powered by 11ty-plain-bootstrap5</a> · <a class="footer-nav" href="{{ '/pages/privacy' | url }}">privacy</a> ·
+    <a class="footer-nav" href="{{ '/pages/testing/main-testing' | url }}" align="right">the lab</a>
   </p>
 </footer>

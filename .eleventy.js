@@ -71,6 +71,7 @@ module.exports = function (eleventyConfig) {
 
   // Copy (static) files to output (_site)
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/js/global.js");
 
   // Copy transformed images
   // TODO: this is executed too soon? imgs not there?
@@ -83,6 +84,7 @@ module.exports = function (eleventyConfig) {
 
   // Watch for changes (and reload browser)
   eleventyConfig.addWatchTarget("./src/assets"); // normal (static) assets
+  eleventyConfig.addWatchTarget("./src/js"); // custom JS folder
   eleventyConfig.addWatchTarget("./dist") // laravel-mix output changes
 
   // RandomId function for IDs used by labelled-by
