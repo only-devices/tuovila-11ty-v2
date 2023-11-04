@@ -2,12 +2,12 @@ var darkMode = window.sessionStorage.getItem('darkMode');
 
 function lightsOn() {
     document.querySelector('input[id="mode-toggle"]').checked = false;
-    document.querySelector('.switch-label').innerText = 'Stealthify';
+    document.querySelector('.switch-label').innerText = 'Lights are on';
 }
 
 function lightsOff() {
     document.querySelector('input[id="mode-toggle"]').checked = true;
-    document.querySelector('.switch-label').innerText = 'Unstealthify';
+    document.querySelector('.switch-label').innerText = 'Lights are off';
 }
 
 if (!darkMode) {

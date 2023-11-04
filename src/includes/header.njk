@@ -1,5 +1,5 @@
 <div class="container py-1">
-  <header class="pb-3 mb-4 border-bottom">
+  <header class="pb-1 mb-1">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid text-dark text-decoration-none">
         <a href="{{ '/' | url }}">
@@ -18,6 +18,13 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">{% include "navigation.njk" %}</div>
+        <div class="float-end" style="padding-left: 10px;">
+          <label class="switch">
+          <input id="mode-toggle" type="checkbox" onclick="darkToggle()">
+          <span class="slider round"></span>
+          </label>
+      </div>
+      <span class="switch-label" style="padding-left: 6px; padding-right: 2px;"></span>
       </div>
     </nav>
   </header>
