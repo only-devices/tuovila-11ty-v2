@@ -5,7 +5,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 // (mostly for github pages deployment, see build-deploy.yaml)
 const baseUrl = process.env.BASE_URL || 'https://beta.tuovila.com/';
 // e.g. 'https://mandrasch.github.io/'
-const pathPrefix = process.env.PATH_PREFIX || '/tuovila-11ty-v2/';
+const pathPrefix = process.env.PATH_PREFIX || '/';
 // e.g. '/11ty-plain-boostrap5/'
 console.log('baseUrl is set to ...', baseUrl);
 console.log('pathPrefix is set to ...', pathPrefix);
