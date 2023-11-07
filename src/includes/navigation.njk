@@ -17,7 +17,7 @@
     {%- set isParent = item.url != '/' and item.url in page.url -%}
     {%- set hasChildren = item.children.length -%}
     {%- set randomMenuId = ('dropdown' | generateRandomIdString) -%}
-    <li class="nav-item{% if hasChildren %} dropdown{% endif %}">
+    <li class="nav-item{% if hasChildren %} dropdown{% endif %} text-dark">
             {%- if hasChildren == false -%}
             {# Standard menu nav link #}
             <a class="nav-link{% if isCurrent or isParent %} active{% endif %}"
@@ -27,16 +27,13 @@
             </a>
             {%- else -%}
             {# Menu nav link for bootstrap dropdowns, change role to button #}
-            <a class="nav-link{% if isCurrent or isParent %} active{% endif %} {% if hasChildren %}dropdown-toggle{% endif %}"
+            <a class="nav-link{% if isCurrent or isParent %} active{% endif %} {% if hasChildren %}dropdown-toggle{% endif %} text-dark"
                 href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}"
                 {% if isCurrent %}aria-current="page" {% endif %} {% if hasChildren %} role="button" data-bs-toggle="dropdown" aria-expanded="false"{% endif %}
                 id="{{randomMenuId}}">
                 {{ item.title }} {% if hasChildren %}<span class="visually-hidden">Toggle Dropdown {{item.title}}</span>{% endif %}
             </a>
             <ul class="dropdown-menu" aria-labelledby="{{randomMenuId}}">
-                <li>
-                    <a class="dropdown-item" href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}"></a>
-                </li>
                 {%- for child in item.children %}{{ renderNavListDropdown(child) }}{% endfor -%}
             </ul>
             {%- endif -%}

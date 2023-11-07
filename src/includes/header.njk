@@ -1,22 +1,11 @@
 <div class="container py-1">
   <header class="pb-1 mb-1">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid text-dark text-decoration-none">
-        <a href="{{ '/' | url }}">
+      <div class="container-fluid">
+        <a href="{{ '/' | url }}" style="text-decoration: none;">
           <img src="/assets/images/lego-avatar.jpg" class="img-avatar" height="32px" alt="avatar"></img>
+          <span class="text-dark">{{ site.title }}</span>
         </a>
-        <div style="padding-left: 10px;">{{ site.title }}</div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">{% include "navigation.njk" %}</div>
         <div class="float-end" style="padding-left: 10px;">
           <label class="switch">
