@@ -4,6 +4,16 @@ function generateRandomInt(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
+// Reset all input fields on the page
+function resetInputs() {
+    var elements = document.getElementsByTagName("input");
+    for (var ii=0; ii < elements.length; ii++) {
+      if (elements[ii].type === "text") {
+        elements[ii].value = "";
+      }
+    }
+  }
+
 /* Retrieve CS SR Link */
 function retrieveReplayLink() {
     var srLink = 'https://www.tuovila.com/fake-link';
@@ -98,7 +108,7 @@ function excludeCsRecording(urlRegex) {
     window._uxa = window._uxa || [];
     console.log(urlRegex);
     window._uxa.push(['excludeURLforReplay', urlRegex]);
-    alert(`Success! Pages with paths matching regex: '${urlRegex}' will be excluded from Session Replay recording for this session!`);
+    triggerModal('Session Replay Exclusion Rule Set!',`Success! Pages with paths matching regex: <b>${urlRegex}</b> will be excluded from Session Replay recording for this session! To test, browse to any page matching that URL pattern NOW!`);
     resetInputs();
 }
 
@@ -107,7 +117,7 @@ function setEncryptedCaptures(encryptEls) {
     window._uxa = window._uxa || [];
     console.log('*** Encrypting selectors: ' + encryptEls);
     window._uxa.push(['setEncryptionSelectors', encryptEls]);
-    alert(`Success! The following elements will be captured and encrypted: '${encryptEls}'`);
+    triggerModal('Controlled Exposure Rule Set!',`Success! The following elements will be captured and encrypted: <b>${encryptEls}</b>`);
     resetInputs();
 }
 /* Contentsquare - Errors */
