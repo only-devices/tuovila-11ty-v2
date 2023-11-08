@@ -11,54 +11,63 @@ eleventyNavigation:
 
 <div class="row align-items-md-stretch">
   <div class="col-md-6 mt-3">
-    <div class="h-100 p-5 text-white bg-primary rounded-3">
-      <h4>Scenario one</h4>
-      <p>
-        <br />
-        Do you dare?
-        <br />
-        <br />
+    <div class="p-4 pb-5 text-dark rounded-3" style="background-color: #FC4C02;">
+      <h4>Contentsquare Testing</h4>
+      <p class="pt-2">
+        <button class="btn btn-outline-dark" onclick="setError('js')">Trigger JS Error</button>
+        <button class="btn btn-outline-dark" onclick="setError('api')">Trigger API Error</button>
+        <button class="btn btn-outline-dark" onclick="setError('custom')">Trigger Custom Error</button>
       </p>
-      <a href="https://beta.tuovila.com/" class="btn btn-outline-light">It's go time</a>
+      <a href="https://beta.tuovila.com/" class="btn btn-outline-dark">It's go time</a>
     </div>
   </div>
   <div class="col-md-6 mt-3">
-    <div class="h-100 p-5 text-white bg-secondary rounded-3">
-      <h4>Scenario two</h4>
-      <p>
-        <br />
-        ?erad uoy oD
-        <br />
-        <br />
+    <div class="p-4 pb-5 text-dark rounded-3" style="background-color: #FC4C02;">
+      <h4>General Tools</h4>
+      <p class="pt-2">
+        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#infoModal">Trigger Modal</button>
       </p>
-      <a href="https://beta.tuovila.com/" class="btn btn-outline-light">It's Bo time</a>
+      <a href="https://beta.tuovila.com/" class="btn btn-outline-dark">It's go time</a>
     </div>
   </div>
   <div class="col-md-6 mt-3">
-    <div class="h-100 p-5 text-white bg-dark rounded-3">
-      <h4>Scenario three</h4>
-      <p>
-        <br />
-        You know, a lot of people go to college for seven years.
-        <br />
-        <br />
+    <div class="p-4 pb-5 text-dark rounded-3" style="background-color: #FC4C02;">
+      <h4>General Tools</h4>
+      <p class="pt-2">
+        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#infoModal">Trigger Modal</button>
       </p>
-      <a href="https://beta.tuovila.com/" class="btn btn-outline-light">Shut up, Richard</a>
+      <a href="https://beta.tuovila.com/" class="btn btn-outline-dark">It's go time</a>
     </div>
   </div>
   <div class="col-md-6 mt-3">
-    <div class="h-100 p-5 rounded-3 bg-light">
-      <h4>Let's go shopping</h4>
-      <p>
-        <br />
-        Cash is king
-        <br />
-        <br />
+    <div class="p-4 pb-5 text-dark rounded-3" style="background-color: #FC4C02;">
+      <h4>General Tools</h4>
+      <p class="pt-2">
+        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#infoModal">Trigger Modal</button>
       </p>
-      <a href="https://beta.tuovila.com/" class="btn btn-outline-dark">Cha-ching</a>
+      <a href="https://beta.tuovila.com/" class="btn btn-outline-dark">It's go time</a>
     </div>
   </div>
 </div>
-
+<!-- Modal -->
+      <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="infoModalLabel">Placeholder title</h5>
+            </div>
+              <div class="mb-4 bg-light rounded-3">
+                <div class="container-fluid py-2">
+                  <div class="modal-body">Placeholder content</div>
+                </div>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="row mt-3">
 </div>
