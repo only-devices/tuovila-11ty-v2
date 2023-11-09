@@ -27,18 +27,9 @@ const Image = require("@11ty/eleventy-img");
 module.exports = function (eleventyConfig) {
   // Image processing
   eleventyConfig.addShortcode("image", async function (src, classes, alt, sizes = "100vw") {
-    if (alt === undefined) {
-      // You bet we throw an error on missing alt (alt="" works okay)
-      throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
-    }
-
-    // TODO: pathPrefix must be '/path/', check existence of trailing slash?!
     let metadata = await Image(src, {
-      widths: [600, 1200],
-      formats: ['webp'],
-      urlPath: `${pathPrefix}img`,
-      outputDir: './_site/img/'
-
+      widths: [48, 600, 1200],
+      formats: ['webp']
     });
 
     let imageAttributes = {
