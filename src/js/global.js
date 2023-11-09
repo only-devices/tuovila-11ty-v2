@@ -18,8 +18,8 @@ function resetInputs() {
 function retrieveReplayLink() {
     var srLink = 'https://www.tuovila.com/fake-link';
     if (typeof CS_CONF !== 'undefined' && CS_CONF.integrations_handler !== 'undefined') {
-        if (CS_CONF && CS_CONF.integrations_handler) {
-        var srLink = CS_CONF.integrations_handler;
+        if (CS_CONF && CS_CONF.integrations_handler && CS_CONF.integrations_handler.getReplayLink()) {
+        var srLink = CS_CONF.integrations_handler.getReplayLink();
         }
     }
     return srLink;
