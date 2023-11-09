@@ -8,8 +8,8 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">{% include "navigation.njk" %}</div>
         <div class="float-end" style="padding-left: 10px;">
-          <label class="switch">
-          <input id="mode-toggle" type="checkbox" label="Dark Mode Toggle" onclick="darkToggle()">
+          <label for="mode-toggle" class="switch" aria-label="Dark Mode Toggle">
+          <input id="mode-toggle" type="checkbox" onclick="darkToggle()">
           <span class="slider round"></span>
           </label>
       </div>
