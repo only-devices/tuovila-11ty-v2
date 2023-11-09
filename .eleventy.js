@@ -24,40 +24,34 @@ const globalSiteData = {
 // https://www.11ty.dev/docs/plugins/image/#use-this-in-your-templates
 const Image = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt, sizes = "100vw") {
-  if (alt === undefined) {
-    // You bet we throw an error on missing alt (alt="" works okay)
-    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
-  }
-
-  // TODO: pathPrefix must be '/path/', check existence of trailing slash?!
-  let metadata = await Image(src, {
-    widths: [600, 1200],
-    formats: ['webp', 'jpeg'],
-    urlPath: `${pathPrefix}img`,
-    // outputDir: "./img/" is default
-    outputDir: './_site/img/' // passthrough below didn't work, write to output dir by now
-
-  });
-
-  let lowsrc = metadata.jpeg[0];
-  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
-
-  return `<picture>
-    ${Object.values(metadata).map(imageFormat => {
-    return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
-  }).join("\n")}
-      <img
-        src="${lowsrc.url}"
-        width="${highsrc.width}"
-        height="${highsrc.height}"
-        alt="${alt}"
-        loading="lazy"
-        decoding="async">
-    </picture>`;
-}
-
 module.exports = function (eleventyConfig) {
+  // Image processing
+  eleventyConfig.addShortcode("image", async function (src, classes, alt, sizes = "100vw") {
+    if (alt === undefined) {
+      // You bet we throw an error on missing alt (alt="" works okay)
+      throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+    }
+
+    // TODO: pathPrefix must be '/path/', check existence of trailing slash?!
+    let metadata = await Image(src, {
+      widths: [600, 1200],
+      formats: ['webp'],
+      urlPath: `${pathPrefix}img`,
+      outputDir: './_site/img/'
+
+    });
+
+    let imageAttributes = {
+      class: classes,
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+    };
+
+    // You bet we throw an error on a missing alt (alt="" works okay)
+    return Image.generateHTML(metadata, imageAttributes);
+  });
 
   // Heroicons -- https://libraries.io/npm/@cdransf%2Feleventy-plugin-heroicons
   eleventyConfig.addPlugin(require("@cdransf/eleventy-plugin-heroicons"));
@@ -96,9 +90,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("generateRandomIdString", function (prefix) {
     return prefix + "-" + Math.floor(Math.random() * 1000000);
   });
-
-  // eleventy-img config
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
   // Base Config
   return {
