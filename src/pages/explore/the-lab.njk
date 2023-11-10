@@ -41,7 +41,7 @@ eleventyNavigation:
     <div class="p-4 pb-5 text-light rounded-3 bg-primary">
       <h4 class="pt-2 pb-2" style="border-bottom: 2px solid lightgrey;">Let's play leadgen!</h4>
       <div class="mt-4">
-        <form name="leadGenMain" action="{{ '/pages/explore/order-confirmed' | url }}" data-netlify="true">
+        <form name="leadGenMain" action="{{ '/pages/explore/order-confirmed' | url }}" method="POST" data-netlify="true">
           <label htmlFor="firstName">First name
             <div><input type="text" id="firstName-input" title="Controlled Exposure is enabled on this field" name="firstName" required={true} data-cs-encrypt /></div><br />
           </label>
