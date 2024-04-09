@@ -90,6 +90,40 @@ function toggle() {
     window.sessionStorage.setItem('darkMode', darkMode);
 }
 
+/* ---- UNIBOX ---- */
+
+function unibox() {
+    window._uxa = window._uxa || [];
+    var e = document.getElementById('unibox-select');
+    var v = document.getElementById('unibox-input');
+    if (e.value) {
+        console.log('*** Unibox ACTIVATED! - ' + e.value + ' method detected. Transmission rendering... ***')
+        if (v.value) {
+            if (e.value === 'ui') {
+                window._uxa.push(['trackPageEvent', '@user-identifier@' + v.value]);
+            }
+            if (e.value === 'dv') {
+                window._uxa.push(['trackDynamicVariable', {'key':'Unibox Testing', 'value':v.value}]);
+            }
+            if (e.value === 'cv') {
+                window._uxa.push(['setCustomVariable', 20, 'Unibox Testing', v.value, 4]);
+                window._uxa.push(['trackPageview']);
+            }
+            if (e.value === 'pe') {
+                window._uxa.push(['trackPageEvent', v.value]);
+            }
+            if (e.value === 'heapuser') {
+                heap.identify(v.value);
+            }
+        triggerModal('Boom!',`Success! ${v.value} was pushed as selected. You're welcome.`);
+        resetInputs();
+        } else {
+            triggerModal('You\'re doing it wrong 😨','🚫 Try again, but the correct way this time');
+            resetInputs(); 
+        }
+    }
+}
+
 /* ---- Contentsquare - ETR function ---- */
 function triggerRecording(recType) {
     window._uxa = window._uxa || [];
@@ -137,12 +171,14 @@ function setError(errType) {
                 errId: errId
             }
         ]);
+        heap.track('Error', {'id': errId});
         console.error('Custom error: ' + errId);
         triggerModal('Custom Error Triggered','🖌 Personalization is so important. You really made that one yours.')
     } if (errType === 'js') {
         try {
             window._uxa.buttonPush(['fakeError']);
         } catch (error) {
+            heap.track('Error', {'message': error});
             console.error(error);
         }
         triggerModal('JavaScript Error Triggered','💪 Well done.')
@@ -155,7 +191,7 @@ function setError(errType) {
                 'X-Tuovila-Content': '{"username": "test", "email": "fake@email.com", "source": "tuovila.com", "auth_code": "1234"}'
             },
         })
-            .catch(err => console.error(err));
+            .catch(err => heap.track('Error', {'message': err}));
             triggerModal('API Error Triggered','🤖 Beep. Boop. Boom.')
     }
 }

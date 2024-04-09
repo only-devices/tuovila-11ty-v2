@@ -12,9 +12,24 @@ eleventyNavigation:
 <div class="row align-items-md-stretch">
   <!--- Contentsquare --->
   <div class="col-md-4 mt-3">
-    <div class="p-4 pb-5 text-dark rounded-3 bg-light">
+    <div class="p-4 pb-3 text-dark rounded-3 bg-light">
       <h4 class="pt-2 pb-2" style="border-bottom: 2px solid darkblue;">Contentsquare</h4>
       <div class="mt-4">
+      <!--- Unibox --->
+      <h5 class="p-2">🧪 Unibox</h5>
+      <div class="m-3 pt-2 pb-2">
+        <input id="unibox-input" type="text" placeholder="Anything here" title="Enter anything here"/>
+        <select id="unibox-select" type="select">
+          <option value="ui">User Identifier</option>
+          <option value="dv">Dynamic Variable</option>
+          <option value="cv">Custom Variable</option>
+          <option value="pe">Page Event</option>
+          <option value="heapuser">Identify Heap User</option>
+        </select>
+        <br/><br/>
+        <button class="btn btn-sm btn-outline-dark" onclick="unibox()">Unibox Go!</button>
+        <br/><br/>
+      </div>
       <!--- CS Errors --->
       <h5 class="p-2">⚠️ Errors</h5>
       <div class="m-3 pt-2 pb-2">
@@ -37,6 +52,7 @@ eleventyNavigation:
     </div>
     </div>
   </div>
+  <!--- Form --->
   <div class="col-md-4 mt-3">
     <div class="p-4 pb-5 text-light rounded-3 bg-primary">
       <h4 class="pt-2 pb-2" style="border-bottom: 2px solid lightgrey;">Let's play leadgen!</h4>
