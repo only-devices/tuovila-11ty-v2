@@ -37,8 +37,7 @@ module.exports = function (eleventyConfig) {
       alt,
       sizes,
       loading: "lazy",
-      decoding: "async",
-      type: "image/webp"
+      decoding: "async"
     };
 
     // You bet we throw an error on a missing alt (alt="" works okay)
@@ -62,10 +61,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/js/global.js");
 
-  // Copy transformed images
-  // TODO: this is executed too soon? imgs not there?
-  eleventyConfig.addPassthroughCopy("img/");
-
   // Important for watch: Eleventy will not add a watch for files or folders that
   // are in .gitignore (--> dist/),unless setUseGitIgnore is turned off. See this chapter:
   // https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
@@ -75,6 +70,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/assets"); // normal (static) assets
   eleventyConfig.addWatchTarget("./src/js"); // custom JS folder
   eleventyConfig.addWatchTarget("./dist") // laravel-mix output changes
+
+  // Copy transformed images
+  // TODO: this is executed too soon? imgs not there?
+  eleventyConfig.addPassthroughCopy("img/*");
 
   // RandomId function for IDs used by labelled-by
   // Thanks https://github.com/mozilla/nunjucks/issues/724#issuecomment-207581540
