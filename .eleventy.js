@@ -25,7 +25,7 @@ const globalSiteData = {
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
-  // Image processing
+  /* Image processing
   eleventyConfig.addShortcode("image", async function (src, classes, alt, sizes = "100vw") {
     let metadata = await Image(src, {
       widths: [48, 600, 1200],
@@ -43,6 +43,7 @@ module.exports = function (eleventyConfig) {
     // You bet we throw an error on a missing alt (alt="" works okay)
     return Image.generateHTML(metadata, imageAttributes);
   });
+  */
 
   // Heroicons -- https://libraries.io/npm/@cdransf%2Feleventy-plugin-heroicons
   eleventyConfig.addPlugin(require("@cdransf/eleventy-plugin-heroicons"));
@@ -73,7 +74,7 @@ module.exports = function (eleventyConfig) {
 
   // Copy transformed images
   // TODO: this is executed too soon? imgs not there?
-  eleventyConfig.addPassthroughCopy("img/*");
+  //eleventyConfig.addPassthroughCopy("img/*");
 
   // RandomId function for IDs used by labelled-by
   // Thanks https://github.com/mozilla/nunjucks/issues/724#issuecomment-207581540
