@@ -38,6 +38,7 @@ module.exports = function (eleventyConfig) {
       sizes,
       loading: "lazy",
       decoding: "async",
+      type: "image/webp"
     };
 
     // You bet we throw an error on a missing alt (alt="" works okay)
