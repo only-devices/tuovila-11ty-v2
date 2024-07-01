@@ -79,9 +79,9 @@ module.exports = function (eleventyConfig) {
   // RandomId function for IDs used by labelled-by
   // Thanks https://github.com/mozilla/nunjucks/issues/724#issuecomment-207581540
   // TODO: replace with addNunjucksGlobal? https://github.com/11ty/eleventy/issues/1498
-  eleventyConfig.addFilter("generateRandomIdString", function (prefix) {
+  eleventyConfig.addNunjucksGlobal("generateRandomIdString", function (prefix) {
     return prefix + "-" + Math.floor(Math.random() * 1000000);
-  });
+  })
 
   // Base Config
   return {

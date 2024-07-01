@@ -1,0 +1,37 @@
+---
+meta:
+lang: en
+title: zoning test page
+description: for learning and testing and stuff
+layout: base
+eleventyNavigation:
+key: the zone
+parent: choose your own adventure
+order: 2
+---
+<main>
+  <h2>Product Category</h2>
+  <section class="product-grid">
+    <div id="productOne" class="product-item">
+      <a href="/pages/explore/the-zone#product-1">
+        <img src="/assets/images/products/CAR.svg" alt="Product 1 Name" height="100px">
+        <h3>Product 1 Name</h3>
+        <p class="price">$<span>19.99</span></p>
+      </a>
+    </div>
+    <div id="{{generateRandomIdString("dynamic")}}" class="product-item" name="productTwo">
+      <a href="/pages/explore/the-zone#product-2">
+        <img src="/assets/images/products/EDM.svg" alt="Product 2 Name" height="100px">
+        <h3>Product 2 Name</h3>
+        <p class="price">$<span>24.99</span></p>
+      </a>
+    </div>
+    <div class="product-item">
+      <a href="/pages/explore/the-zone#product-10">
+        <img src="/assets/images/products/VGK.svg" alt="Product 10 Name" height="100px">
+        <h3>Product 10 Name</h3>
+        <p class="price">$<span>39.99</span></p>
+      </a>
+    </div>
+  </section>
+</main>

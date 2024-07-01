@@ -16,7 +16,6 @@
     {%- set isCurrent = (item.url == page.url) -%}
     {%- set isParent = item.url != '/' and item.url in page.url -%}
     {%- set hasChildren = item.children.length -%}
-    {%- set randomMenuId = ('dropdown' | generateRandomIdString) -%}
     <li class="nav-item{% if hasChildren %} dropdown{% endif %} text-dark">
             {%- if hasChildren == false -%}
             {# Standard menu nav link #}
@@ -30,7 +29,7 @@
             <a class="nav-link{% if isCurrent or isParent %} active{% endif %} {% if hasChildren %}dropdown-toggle{% endif %} text-dark"
                 href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}"
                 {% if isCurrent %}aria-current="page" {% endif %} {% if hasChildren %} role="button" data-bs-toggle="dropdown" aria-expanded="false"{% endif %}
-                id="{{randomMenuId}}">
+                id="{{generateRandomIdString("dropdown")}}">
                 {{ item.title }} {% if hasChildren %}<span class="visually-hidden">Toggle Dropdown {{item.title}}</span>{% endif %}
             </a>
             <ul class="dropdown-menu" aria-labelledby="{{randomMenuId}}">

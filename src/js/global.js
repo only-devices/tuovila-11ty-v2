@@ -7,19 +7,19 @@ function generateRandomInt(max) {
 // Reset all input fields on the page
 function resetInputs() {
     var elements = document.getElementsByTagName("input");
-    for (var ii=0; ii < elements.length; ii++) {
-      if (elements[ii].type === "text") {
-        elements[ii].value = "";
-      }
+    for (var ii = 0; ii < elements.length; ii++) {
+        if (elements[ii].type === "text") {
+            elements[ii].value = "";
+        }
     }
-  }
+}
 
 /* Retrieve CS SR Link */
 function retrieveReplayLink() {
     var srLink = 'https://www.tuovila.com/fake-link';
     if (typeof CS_CONF !== 'undefined' && CS_CONF.integrations_handler !== 'undefined') {
         if (CS_CONF && CS_CONF.integrations_handler && CS_CONF.integrations_handler.getReplayLink()) {
-        var srLink = CS_CONF.integrations_handler.getReplayLink();
+            var srLink = CS_CONF.integrations_handler.getReplayLink();
         }
     }
     return srLink;
@@ -28,17 +28,17 @@ function retrieveReplayLink() {
 /* Modal trigger with CS Replay link every time */
 function triggerModal(dynModalTitle, dynModalBody) {
     var infoModal = document.getElementById('infoModal');
-      infoModal.addEventListener('show.bs.modal', function () {
+    infoModal.addEventListener('show.bs.modal', function () {
         // Update the modal's content.
         var modalTitle = infoModal.querySelector('.modal-title');
         var modalBody = infoModal.querySelector('.modal-body');
         modalTitle.textContent = dynModalTitle;
         var replayLink = retrieveReplayLink();
         modalBody.innerHTML = dynModalBody + `<br/><br/>👉 SR link: <a href="${replayLink}">${replayLink}</a>`;
-      })
-      var bsInfoModal = new bootstrap.Modal(document.getElementById('infoModal'));
-      bsInfoModal.show();
-    }
+    })
+    var bsInfoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+    bsInfoModal.show();
+}
 
 /* ---- Dark mode ---- */
 var darkMode = window.sessionStorage.getItem('darkMode');
@@ -103,7 +103,7 @@ function unibox() {
                 window._uxa.push(['trackPageEvent', '@user-identifier@' + v.value]);
             }
             if (e.value === 'dv') {
-                window._uxa.push(['trackDynamicVariable', {'key':'Unibox Testing', 'value':v.value}]);
+                window._uxa.push(['trackDynamicVariable', { 'key': 'Unibox Testing', 'value': v.value }]);
             }
             if (e.value === 'cv') {
                 window._uxa.push(['setCustomVariable', 20, 'Unibox Testing', v.value, 4]);
@@ -115,11 +115,11 @@ function unibox() {
             if (e.value === 'heapuser') {
                 heap.identify(v.value);
             }
-        triggerModal('Boom!',`Success! ${v.value} was pushed as selected. You're welcome.`);
-        resetInputs();
+            triggerModal('Boom!', `Success! ${v.value} was pushed as selected. You're welcome.`);
+            resetInputs();
         } else {
-            triggerModal('You\'re doing it wrong 😨','🚫 Try again, but the correct way this time');
-            resetInputs(); 
+            triggerModal('You\'re doing it wrong 😨', '🚫 Try again, but the correct way this time');
+            resetInputs();
         }
     }
 }
@@ -142,7 +142,7 @@ function excludeCsRecording(urlRegex) {
     window._uxa = window._uxa || [];
     console.log(urlRegex);
     window._uxa.push(['excludeURLforReplay', urlRegex]);
-    triggerModal('Session Replay Exclusion Rule Set!',`Success! Pages with paths matching regex: <b>${urlRegex}</b> will be excluded from Session Replay recording for this session! To test, browse to any page matching that URL pattern NOW!`);
+    triggerModal('Session Replay Exclusion Rule Set!', `Success! Pages with paths matching regex: <b>${urlRegex}</b> will be excluded from Session Replay recording for this session! To test, browse to any page matching that URL pattern NOW!`);
     resetInputs();
 }
 
@@ -151,7 +151,7 @@ function setEncryptedCaptures(encryptEls) {
     window._uxa = window._uxa || [];
     console.log('*** Encrypting selectors: ' + encryptEls);
     window._uxa.push(['setEncryptionSelectors', encryptEls]);
-    triggerModal('Controlled Exposure Rule Set!',`Success! The following elements will be captured and encrypted: <b>${encryptEls}</b>`);
+    triggerModal('Controlled Exposure Rule Set!', `Success! The following elements will be captured and encrypted: <b>${encryptEls}</b>`);
     resetInputs();
 }
 /* Contentsquare - Errors */
@@ -171,17 +171,17 @@ function setError(errType) {
                 errId: errId
             }
         ]);
-        heap.track('Error', {'id': errId});
+        heap.track('Error', { 'id': errId });
         console.error('Custom error: ' + errId);
-        triggerModal('Custom Error Triggered','🖌 Personalization is so important. You really made that one yours.')
+        triggerModal('Custom Error Triggered', '🖌 Personalization is so important. You really made that one yours.')
     } if (errType === 'js') {
         try {
             window._uxa.buttonPush(['fakeError']);
         } catch (error) {
-            heap.track('Error', {'message': error});
+            heap.track('Error', { 'message': error });
             console.error(error);
         }
-        triggerModal('JavaScript Error Triggered','💪 Well done.')
+        triggerModal('JavaScript Error Triggered', '💪 Well done.')
     } if (errType === 'api') {
         fetch(apiUrl, {
             method: 'POST',
@@ -191,7 +191,7 @@ function setError(errType) {
                 'X-Tuovila-Content': '{"username": "test", "email": "fake@email.com", "source": "tuovila.com", "auth_code": "1234"}'
             },
         })
-            .catch(err => heap.track('Error', {'message': err}));
-            triggerModal('API Error Triggered','🤖 Beep. Boop. Boom.')
+            .catch(err => heap.track('Error', { 'message': err }));
+        triggerModal('API Error Triggered', '🤖 Beep. Boop. Boom.')
     }
 }
