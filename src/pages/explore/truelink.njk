@@ -1,0 +1,64 @@
+---
+meta:
+  lang: en
+  title: truelink
+  description: 🧪🧪🧪
+layout: base
+eleventyNavigation:
+  key: truelink
+  hideInMainNav: false
+---
+<!-- TrueLink Init -->
+  <script type="application/javascript">
+    const id5BootstrapPromise = new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = '/assets/js/id5-bootstrap.js';
+      script.onload = resolve;
+      document.head.appendChild(script);
+      });
+    
+    id5BootstrapPromise.then(() => {
+      console.log("*** Initializing ID5 Bootstrap ***");
+      window.id5Bootstrap.initTrueLinkId(173)
+      });
+  </script>
+
+<div class="row align-items-md-stretch">
+  <div class="row mt-3">
+  TrueLink testing page
+  <script type="application/javascript">
+    var id5Instance = {};
+    var trueLinkId = '';
+    const id5JsApi = new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = '//cdn.id5-sync.com/api/1.0/id5-api.js';
+      script.onload = resolve;
+      document.head.appendChild(script);
+    });
+
+    id5JsApi.then(() => {
+      console.log("*** Initializing ID5 JS SDK ***");
+      ID5.debug = true;
+      id5Instance = ID5.init({
+        partnerId: 173,
+        refreshInSeconds: 15,
+        cmpApi: 'static',
+        consentData: {
+            getTCData: {
+                gdprApplies: false,
+                purpose: {
+                    consents: {
+                        1: true
+                    }
+                },
+                tcString: "CPBZjR9PBZjR9AKAZAENBMCsAP_AAH_AAAqIHWtf_X_fb39j-_59_9t0eY1f9_7_v-0zjhfds-8Nyf_X_L8X42M7vF36pq4KuR4Eu3LBIQFlHOHUTUmw6okVrTPsak2Mr7NKJ7LEinMbe2dYGHtfn9VTuZKYr97s___z__-__v__79f_r-3_3_vp9X---_e_V3dgdYASYal8BFmJY4Ek0aVQogQhXEh0AoAKKEYWiawgJXBTsrgI9QQMAEBqAjAiBBiCjFgEAAAAASURASAHggEQBEAgABACpAQgAIkAQWAFgYBAAKAaFgBFAEIEhBkcFRymBARItFBPJWAJRd7GGEIZRYAUCj-iowEAAAAA.cAAAAAAAAAAA",
+              }
+          }
+        });
+    id5Instance.onUpdate(function(){
+      trueLinkId = id5Bootstrap.trueLinkId;
+      });
+    });
+  </script>
+  </div>
+</div>
