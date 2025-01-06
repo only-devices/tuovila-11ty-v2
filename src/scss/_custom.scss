@@ -1,12 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
 body {
   font-family: 'Oswald', serif;
-  display:block !important;
+  display: block !important;
 }
 
 /* Clean up that modal */
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
   border: none;
+}
+
+/* Fix annoying link styling */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #888aff;
+  /* Change to your desired hover color */
 }
 
 /* Dark mode styling */
@@ -69,15 +82,15 @@ body {
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: orangered !important;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px orangered !important;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(22px);
   -ms-transform: translateX(22px);
   transform: translateX(22px);
