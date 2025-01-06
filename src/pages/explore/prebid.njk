@@ -1,0 +1,107 @@
+---
+meta:
+  lang: en
+  title: prebid
+  description: 🧪🧪🧪
+layout: base
+eleventyNavigation:
+  key: prebid
+  hideInMainNav: false
+---
+    <!-- prebid.js -->
+    <script async src="https://cdn.jsdelivr.net/npm/prebid.js@latest/dist/not-for-prod/prebid.js"></script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+    <script>var sizes = [
+  [300, 250]
+];
+var PREBID_TIMEOUT = 700;
+
+var adUnits = [{
+  code: '/19968336/header-bid-tag-1',
+  mediaTypes: {
+    banner: {
+      sizes: sizes
+    }
+  },
+  bids: [{
+    bidder: 'appnexus',
+    params: {
+      placementId: 13144370
+    }
+  }]
+}];
+
+// ======== DO NOT EDIT BELOW THIS LINE =========== //
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+googletag.cmd.push(function() {
+  googletag.pubads().disableInitialLoad();
+});
+
+var pbjs = pbjs || {};
+pbjs.que = pbjs.que || [];
+
+pbjs.que.push(function() {
+  pbjs.setConfig({
+                debug: true,
+            // ======== ID5 UNIVERSAL ID CONFIGURATION =========== //
+                userSync: {
+                    userIds: [{
+                        name: "id5Id",
+                        params: {
+                            partner: 569            // update this to your own Partner ID
+                        },
+                        storage: {
+                            type: "html5",
+                            name: "id5id",
+                            expires: 90,            // 90 days
+                            refreshInSeconds: 10    // every 10 seconds for testing purposes, typical value is 8*3600 (8 hours)
+                        }
+                    }],
+                    auctionDelay: 250               // wait up to 250ms to retrieve ID5 ID before starting auction
+                },
+                consentManagement: {
+                    gdpr: {
+                        cmpApi: 'iab',
+                        timeout: 20000,
+                    },
+                }
+            });
+            // ======== /ID5 UNIVERSAL ID CONFIGURATION =========== //
+  pbjs.addAdUnits(adUnits);
+  pbjs.requestBids({
+    bidsBackHandler: initAdserver
+  });
+});
+
+function initAdserver() {
+  if (pbjs.initAdserverSet) return;
+  pbjs.initAdserverSet = true;
+  googletag.cmd.push(function() {
+    pbjs.setTargetingForGPTAsync && pbjs.setTargetingForGPTAsync();
+    googletag.pubads().refresh();
+  });
+}
+
+setTimeout(function() {
+  initAdserver();
+}, PREBID_TIMEOUT);
+
+googletag.cmd.push(function() {
+  googletag.defineSlot('/19968336/header-bid-tag-1', sizes, 'div-1')
+    .addService(googletag.pubads());
+  googletag.pubads().enableSingleRequest();
+  googletag.enableServices();
+});
+</script>
+
+  <!-- html -->
+  <h5>Div-1</h5>
+<div id='div-1' style="min-height:250px;">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() {
+      googletag.display('div-1');
+    });
+  </script>
+</div>
