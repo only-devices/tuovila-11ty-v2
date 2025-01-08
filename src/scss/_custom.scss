@@ -5,6 +5,23 @@ body {
   display: block !important;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-7,
+.col-md-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-md-7>div,
+.col-md-5>div {
+  flex-grow: 1;
+}
+
+
 /* Clean up that modal */
 .modal-header,
 .modal-footer {
@@ -27,19 +44,6 @@ a:hover {
   color: #f9f9f9 !important;
   background-color: #222 !important;
   border-color: #f9f9f9 !important;
-}
-
-/* Heroicon styling */
-[data-heroicon-style="outline"] {
-  width: 20px;
-}
-
-[data-heroicon-style="solid"] {
-  width: 20px;
-}
-
-[data-heroicon-name] {
-  padding-bottom: 4px;
 }
 
 /* The switch - the box around the slider */

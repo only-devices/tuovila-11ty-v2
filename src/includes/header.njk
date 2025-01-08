@@ -3,17 +3,17 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a href="{{ '/' | url }}" style="text-decoration: none;">
-          <img src="/assets/images/lego-avatar.jpg" class="img-avatar" height="40px" alt="avatar"></img>
+          <img src="/assets/images/avatar.png" class="img-avatar" height="80px" alt="avatar"></img>
           <span class="text-dark p-1">{{ site.title }}</span>
         </a>
         <div class="navbar-collapse" id="navbarNav" style="padding-right: 10px;">{% include "navigation.njk" %}</div>
         <div class="float-end">
           <label for="mode-toggle" class="switch" aria-label="Dark Mode Toggle">
-          <input id="mode-toggle" type="checkbox" onclick="darkToggle()">
-          <span class="slider round"></span>
+            <input id="mode-toggle" type="checkbox" onclick="darkToggle()">
+            <span class="slider round"></span>
           </label>
-      </div>
-      <span class="switch-label" style="padding-left: 6px; padding-right: 2px;"></span>
+        </div>
+        <span class="switch-label" style="padding-left: 6px; padding-right: 2px;"></span>
       </div>
     </nav>
   </header>

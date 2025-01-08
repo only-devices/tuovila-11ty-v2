@@ -8,9 +8,10 @@
     "dev": "npm-run-all clean -p dev:*",
     "dev:eleventy": "eleventy --serve --quiet",
     "dev:mix": "mix watch",
-    "build:eleventy": "eleventy",
-    "build:mix": "mix --production",
-    "build": "npm-run-all clean -s build:mix build:eleventy"
+    "build:eleventy": "npm run fetch-books && eleventy",
+    "build:mix": "npm run fetch-books && mix --production",
+    "build": "npm-run-all clean -s && npm run fetch-books && build:mix build:eleventy",
+    "fetch-books": "node scripts/fetch-books.js"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "sass-loader": "^12.6.0"
   },
   "dependencies": {
-    "@cdransf/eleventy-plugin-heroicons": "^1.3.2"
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
   }
 }

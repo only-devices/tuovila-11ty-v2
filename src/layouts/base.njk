@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="{{ meta.lang or site.lang }}">
-  <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-K4GTT8V');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ site.title }} - {{ title or meta.title }}</title>
-    <link rel="preload" as="style" href="{{ '/dist/app.css' | url }}" />
-    <link rel="stylesheet" href="{{ '/dist/app.css' | url }}" />
 
-    {% include "meta.njk" %}
-  </head>
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-K4GTT8V');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ site.title }} - {{ title or meta.title }}</title>
+  <link rel="preload" as="style" href="{{ '/dist/app.css' | url }}" />
+  <link rel="stylesheet" href="{{ '/dist/app.css' | url }}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <body class="fade">
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4GTT8V" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    <!-- skiplinks -->
-    <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+  {% include "meta.njk" %}
+</head>
 
-    {% include "header.njk" %}
+<body class="fade">
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4GTT8V" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe>
+  <!-- skiplinks -->
+  <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
 
-    <main id="main">
-      <div class="container py-4">
-        {{ content | safe }}
-      </div>
-    </main>
+  {% include "header.njk" %}
 
-    {% include "footer.njk" %}
-    <script type="text/javascript" src="{{ '/dist/app.js' | url }}"></script>
-    <script type="text/javascript" src="{{ '/js/global.js' | url }}"></script>
-  </body>
+  <main id="main">
+    <div class="container py-4">
+      {{ content | safe }}
+    </div>
+  </main>
+
+  {% include "footer.njk" %}
+  <script type="text/javascript" src="{{ '/dist/app.js' | url }}"></script>
+  <script type="text/javascript" src="{{ '/js/global.js' | url }}"></script>
+</body>
+
 </html>

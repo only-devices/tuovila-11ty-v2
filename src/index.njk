@@ -23,46 +23,13 @@ hideInMainNav: true
 </div>
 
 <div class="row align-items-md-stretch">
-  <div class="col-md-5 mt-4">
-    <div class="p-4 pb-3 rounded-3 text-dark" style="background-color: #FC4C02;">
-      <h2>Endeavors</h2>
-      <p class="pt-2">
-        Sometimes I write code. Sometimes I play guitar. Not at the same time, though.
-        <br />
-        <br />
-        <a href="https://www.linkedin.com/in/etuovila" class="btn btn-outline-dark"">
-          LinkedIn</a>
-          <a href=" https://github.com/only-devices/" class="btn btn-outline-dark">{% heroicon_solid "command-line" %}
-          GitHub</a>
-        <a href="https://soundcloud.com/only_devices" class="btn btn-outline-dark">{% heroicon_solid "bolt" %}
-          Soundcloud</a>
-      </p>
-    </div>
-  </div>
+  <!-- BOOKS CONTAINER -->
   <div class="col-md-7 mt-4">
     <div class="p-4 pb-3 rounded-3 text-light" style="background-color: #005778;">
-      <h2>Recent Reads</h2>
-      <p class="pt-2">
+      <h2><i class="fa-solid fa-book" style="color: #74C0FC;"></i> Reads</h2>
+      <p class="pt-">
         <style type="text/css" media="screen">
-          /* .gr_custom_container_1736187910 {
-            border: 2px solid gray;
-            border-radius: 10px;
-            padding: 10px 5px 10px 5px;
-            background-color: transparent;
-            color: #000000;
-            width: 500px
-          } */
-
-          .gr_custom_header_1736187910 {
-            /* customize your Goodreads header here*/
-            width: 100%;
-            margin-bottom: 5px;
-            text-align: center;
-            font-size: 0%
-          }
-
-          .gr_custom_each_container_1736187910 {
-            /* customize each individual book container here */
+          .hardcover_each_container {
             width: 100%;
             clear: both;
             margin-bottom: 10px;
@@ -71,108 +38,100 @@ hideInMainNav: true
             border-bottom: 1px solid #aaa;
           }
 
-          .gr_custom_book_container_1736187910 {
-            /* customize your book covers here */
+          .hardcover_book_container {
             overflow: hidden;
-            height: 81px;
+            height: 84px;
             float: left;
             margin-right: 4px;
-            width: 60px;
+            width: 66px;
           }
 
-          .gr_custom_author_1736187910 {
-            /* customize your author names here */
-            font-size: 12px;
+          .hardcover_author {
+            font-size: 16px;
           }
 
-          .gr_custom_rating_1736187910 {
-            /* customize your rating stars here */
+          .hardcover_title {
+            font-size: 20px;
+          }
+
+          .hardcover_rating {
             float: right;
           }
         </style>
 
-      <div id="gr_custom_widget_1736187910">
-        <div class="gr_custom_container_1736187910">
-          <div class="gr_custom_each_container_1736187910">
-            <div class="gr_custom_book_container_1736187910">
-              <a title="Super Thinking: The Big Book of Mental Models" rel="nofollow"
-                href="https://www.goodreads.com/review/show/7165615270?utm_medium=api&amp;utm_source=custom_widget"><img
-                  alt="Super Thinking: The Big Book of Mental Models" border="0"
-                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1551785369l/41181911._SX50_.jpg" /></a>
+      <div id="hardcover_widget">
+        <div class="hardcover_container">
+          {% for book in books %}
+          <div class="hardcover_each_container">
+            <div class="hardcover_book_container">
+              <a title="{{ book.title }}" rel="nofollow" href="{{ book.bookUrl }}">
+                <img alt="{{ book.title }}" border="0" src="{{ book.image }}" height="80px" width="60px" />
+              </a>
             </div>
-            <div class="gr_custom_rating_1736187910">
-              <span class=" staticStars notranslate" title="really liked it"><img alt="really liked it"
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_inactive.png" /></span>
+            <div class="hardcover_rating">
+              <span class="staticStars notranslate" title="rating: {{ book.rating }} out of 5">
+                {% for i in range(1, 6) %}
+                {% if i
+                <= book.rating %} <img alt="" src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" />
+                {% else %}
+                <img alt="" src="https://s.gr-assets.com/images/layout/gr_red_star_inactive.png" />
+                {% endif %}
+                {% endfor %}
+              </span>
             </div>
-            <div class="gr_custom_title_1736187910">
-              <a rel="nofollow"
-                href="https://www.goodreads.com/review/show/7165615270?utm_medium=api&amp;utm_source=custom_widget">Super
-                Thinking: The Big Book of Mental Models</a>
+            <div class="hardcover_title">
+              <a rel="nofollow" href="{{ book.bookUrl }}">{{ book.title }}</a>
             </div>
-            <div class="gr_custom_author_1736187910">
-              by <a rel="nofollow" href="https://www.goodreads.com/author/show/7754157.Gabriel_Weinberg">Gabriel
-                Weinberg</a>
-            </div>
-          </div>
-          <div class="gr_custom_each_container_1736187910">
-            <div class="gr_custom_book_container_1736187910">
-              <a title="Shock Induction" rel="nofollow"
-                href="https://www.goodreads.com/review/show/7165614466?utm_medium=api&amp;utm_source=custom_widget"><img
-                  alt="Shock Induction" border="0"
-                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1712867547l/207299641._SY75_.jpg" /></a>
-            </div>
-            <div class="gr_custom_rating_1736187910">
-              <span class=" staticStars notranslate" title="liked it"><img alt="liked it"
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_inactive.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_inactive.png" /></span>
-            </div>
-            <div class="gr_custom_title_1736187910">
-              <a rel="nofollow"
-                href="https://www.goodreads.com/review/show/7165614466?utm_medium=api&amp;utm_source=custom_widget">Shock
-                Induction</a>
-            </div>
-            <div class="gr_custom_author_1736187910">
-              by <a rel="nofollow" href="https://www.goodreads.com/author/show/2546.Chuck_Palahniuk">Chuck Palahniuk</a>
+            <div class="hardcover_author">
+              {% if book.contributors.length > 1 %}
+              by
+              {% for contributor in book.contributors %}
+              {{ contributor.author.name }}
+              {%- if not loop.last -%}{% if loop.revindex0 == 1 %} and {% else %},{%- endif -%}{%- endif -%}
+              {% endfor %}
+              {% elif book.contributors.length == 1 %}
+              by {{ book.contributors[0].author.name }}
+              {% endif %}
             </div>
           </div>
-          <div class="gr_custom_each_container_1736187910">
-            <div class="gr_custom_book_container_1736187910">
-              <a title="The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self" rel="nofollow"
-                href="https://www.goodreads.com/review/show/7149119254?utm_medium=api&amp;utm_source=custom_widget"><img
-                  alt="The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self" border="0"
-                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601481119l/55120630._SY75_.jpg" /></a>
-            </div>
-            <div class="gr_custom_rating_1736187910">
-              <span class=" staticStars notranslate" title="it was amazing"><img alt="it was amazing"
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /><img alt=""
-                  src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" /></span>
-            </div>
-            <div class="gr_custom_title_1736187910">
-              <a rel="nofollow"
-                href="https://www.goodreads.com/review/show/7149119254?utm_medium=api&amp;utm_source=custom_widget">The
-                Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self</a>
-            </div>
-            <div class="gr_custom_author_1736187910">
-              by <a rel="nofollow" href="https://www.goodreads.com/author/show/4336509.Michael_Easter">Michael
-                Easter</a>
-            </div>
-          </div>
+          {% endfor %}
         </div>
 
       </div>
       </p>
     </div>
   </div>
+  <!-- MUSIC CONTAINER -->
+  <div class="col-md-5 mt-4">
+    <div class="p-4 pb-4 rounded-3 text-dark" style="background-color: #CACACA;">
+      <h2><i class="fa-solid fa-headphones-simple fa-lg"></i> Plays</h2>
+      <p class="pt-2"></p>
+      <a href="https://www.last.fm/user/only-devices"><img
+          src="https://lastfm-recently-played.vercel.app/api?user=only-devices" width="100%" height="84%" /></a>
+    </div>
+  </div>
+  <!-- LINK CONTAINER -->
+  <div class="col-md-12 mt-4">
+    <div class="p-4 pb-3 rounded-3 text-light" style="background-color: #1A3A5A;">
+      <h2>Endeavors</h2>
+      <p class="pt-2">
+        Sometimes I write code. Sometimes I play guitar. Not at the same time, though.
+        <br />
+        <br />
+        <a href="https://www.linkedin.com/in/etuovila" class="btn btn-outline-light"><i class=" fa-brands fa-linkedin
+          fa-lg"></i></a>
+        <a href=" https://github.com/only-devices/" class="btn btn-outline-light"><i
+            class="fa-brands fa-github fa-lg"></i></a>
+        <a href="https://hardcover.app/@onlydevices" class="btn btn-outline-light"><i
+            class="fa-solid fa-book fa-lg"></i>
+        </a>
+        <a href="https://soundcloud.com/only_devices" class="btn btn-outline-light"><i
+            class="fa-brands fa-soundcloud fa-lg"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">

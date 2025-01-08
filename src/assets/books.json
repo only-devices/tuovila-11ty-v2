@@ -1,0 +1,70 @@
+[
+  {
+    "title": "It Takes What It Takes",
+    "contributors": [
+      {
+        "author": {
+          "name": "Trevor Moawad",
+          "slug": "trevor-moawad"
+        }
+      },
+      {
+        "author": {
+          "name": "Andy Staples",
+          "slug": "andy-staples"
+        }
+      }
+    ],
+    "rating": 4,
+    "image": "https://assets.hardcover.app/edition/24676314/9279425-L.jpg",
+    "bookUrl": "https://hardcover.app/books/it-takes-what-it-takes"
+  },
+  {
+    "title": "Super Thinking",
+    "contributors": [
+      {
+        "author": {
+          "name": "Gabriel Weinberg",
+          "slug": "gabriel-weinberg"
+        }
+      },
+      {
+        "author": {
+          "name": "Lauren McCann",
+          "slug": "lauren-mccann"
+        }
+      }
+    ],
+    "rating": 4,
+    "image": "https://assets.hardcover.app/edition/11427151/10153705-L.jpg",
+    "bookUrl": "https://hardcover.app/books/super-thinking"
+  },
+  {
+    "title": "Shock Induction",
+    "contributors": [
+      {
+        "author": {
+          "name": "Chuck Palahniuk",
+          "slug": "chuck-palahniuk-ad0d3e17-7976-4463-8572-968a3bc07c7f"
+        }
+      }
+    ],
+    "rating": 3,
+    "image": "https://assets.hardcover.app/external_data/60383918/101c748fd05fa995974e005d09801036869fc611.jpeg",
+    "bookUrl": "https://hardcover.app/books/shock-induction"
+  },
+  {
+    "title": "Heroes of the Frontier",
+    "contributors": [
+      {
+        "author": {
+          "name": "Dave Eggers",
+          "slug": "dave-eggers-07bed4a2-ef99-49d5-b3e8-1f7e5304a788"
+        }
+      }
+    ],
+    "rating": 4,
+    "image": "https://assets.hardcover.app/edition/30402709/content.jpeg",
+    "bookUrl": "https://hardcover.app/books/heroes-of-the-frontier"
+  }
+]
