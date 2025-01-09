@@ -11,22 +11,25 @@ hideInMainNav: true
 
 <div class="p-4 mb-3 rounded-3" style="background-color: #005C5C;">
   <div class="container-fluid py-4">
-    <h1 class="display-6 fw-bold text-light"><img src="/assets/images/waving-hand.png" alt="hello!" height="48"
-        class="wave" /> Hi, I'm eric!</h1>
+    <h1 class="display-6 fw-bold text-light"><img src="/assets/images/waving-hand.png" alt="hello!" height="48" class="wave"/> Hi, I'm eric!</h1>
     <p class="col-md-14 fs-5 mb-4 pt-2 text-light">
       I'm a self-taught, highly-motivated, and detail-oriented technical expert with a strong background in SaaS
-      implementation and customer success. I'm passionate about finding creative solutions and better ways to work. I
-      have a few small side projects, including mildly impactful home improvements, some home automation powered by
-      various Docker containers, and playing the guitar. But <b>not</b> acoustic guitar.
+      implementation and customer success. I'm passionate about finding creative solutions and better ways to work. I have a
+      few small side projects, including mildly impactful home improvements, some home automation powered by various Docker
+      containers, and playing the guitar. But
+      <b>not</b>
+      acoustic guitar.
     </p>
   </div>
 </div>
-
-<div class="row align-items-md-stretch">
+<div
+  class="row align-items-md-stretch">
   <!-- BOOKS CONTAINER -->
-  <div class="col-md-7 mt-4">
+  <div class="col-md-7 mt-2">
     <div class="p-4 pb-3 rounded-3 text-light" style="background-color: #005778;">
-      <h2><i class="fa-solid fa-book" style="color: #74C0FC;"></i> Reads</h2>
+      <h2>
+        <i class="fa-solid fa-book" style="color: #74C0FC;"></i>
+        Reads</h2>
       <p class="pt-">
         <style type="text/css" media="screen">
           .hardcover_each_container {
@@ -37,7 +40,6 @@ hideInMainNav: true
             padding-bottom: 4px;
             border-bottom: 1px solid #aaa;
           }
-
           .hardcover_book_container {
             overflow: hidden;
             height: 84px;
@@ -45,69 +47,70 @@ hideInMainNav: true
             margin-right: 4px;
             width: 66px;
           }
-
           .hardcover_author {
             font-size: 16px;
           }
-
           .hardcover_title {
             font-size: 20px;
           }
-
           .hardcover_rating {
             float: right;
           }
         </style>
-
-      <div id="hardcover_widget">
-        <div class="hardcover_container">
-          {% for book in books %}
-          <div class="hardcover_each_container">
-            <div class="hardcover_book_container">
-              <a title="{{ book.title }}" rel="nofollow" href="{{ book.bookUrl }}">
-                <img alt="{{ book.title }}" border="0" src="{{ book.image }}" height="80px" width="60px" />
-              </a>
-            </div>
-            <div class="hardcover_rating">
-              <span class="staticStars notranslate" title="rating: {{ book.rating }} out of 5">
-                {% for i in range(1, 6) %}
-                {% if i
-                <= book.rating %} <img alt="" src="https://s.gr-assets.com/images/layout/gr_red_star_active.png" />
-                {% else %}
-                <img alt="" src="https://s.gr-assets.com/images/layout/gr_red_star_inactive.png" />
-                {% endif %}
-                {% endfor %}
-              </span>
-            </div>
-            <div class="hardcover_title">
-              <a rel="nofollow" href="{{ book.bookUrl }}">{{ book.title }}</a>
-            </div>
-            <div class="hardcover_author">
-              {% if book.contributors.length > 1 %}
-              by
-              {% for contributor in book.contributors %}
-              {{ contributor.author.name }}
-              {%- if not loop.last -%}{% if loop.revindex0 == 1 %} and {% else %},{%- endif -%}{%- endif -%}
-              {% endfor %}
-              {% elif book.contributors.length == 1 %}
-              by {{ book.contributors[0].author.name }}
-              {% endif %}
-            </div>
+        <div id="hardcover_widget">
+          <div class="hardcover_container">
+            {% for book in books %}
+              <div class="hardcover_each_container">
+                <div class="hardcover_book_container">
+                  <a title="{{ book.title }}" rel="nofollow" href="{{ book.bookUrl }}">
+                    <img alt="{{ book.title }}" border="0" src="{{ book.image }}" height="80px" width="60px"/>
+                  </a>
+                </div>
+                <div class="hardcover_rating">
+                  <span class="staticStars notranslate" title="rating: {{ book.rating }} out of 5">
+                    {% for i in range(1, 6) %}
+                      {% if i
+                <= book.rating %}
+                        <img alt="" src="https://s.gr-assets.com/images/layout/gr_red_star_active.png"/>
+                      {% else %}
+                        <img alt="" src="https://s.gr-assets.com/images/layout/gr_red_star_inactive.png"/>
+                      {% endif %}
+                    {% endfor %}
+                  </span>
+                </div>
+                <div class="hardcover_title">
+                  <a rel="nofollow" href="{{ book.bookUrl }}">{{ book.title }}</a>
+                </div>
+                <div class="hardcover_author">
+                  {% if book.contributors.length > 1 %}
+                    by
+                    {% for contributor in book.contributors %}
+                      {{ contributor.author.name }}
+                      {%- if not loop.last -%}
+                        {% if loop.revindex0 == 1 %}
+                          and {% else %},{%- endif -%}
+                      {%- endif -%}
+                    {% endfor %}
+                  {% elif book.contributors.length == 1 %}
+                    by {{ book.contributors[0].author.name }}
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
           </div>
-          {% endfor %}
         </div>
-
-      </div>
       </p>
     </div>
   </div>
   <!-- MUSIC CONTAINER -->
-  <div class="col-md-5 mt-4">
+  <div class="col-md-5 mt-2">
     <div class="p-4 pb-4 rounded-3 text-dark" style="background-color: #CACACA;">
-      <h2><i class="fa-solid fa-headphones-simple fa-lg"></i> Plays</h2>
+      <h2>
+        <i class="fa-solid fa-headphones-simple fa-lg"></i>
+        Plays</h2>
       <p class="pt-2"></p>
-      <a href="https://www.last.fm/user/only-devices"><img
-          src="https://lastfm-recently-played.vercel.app/api?user=only-devices" width="100%" height="84%" /></a>
+      <a href="https://www.last.fm/user/only-devices"><img src="https://lastfm-recently-played.vercel.app/api?user=only-devices" width="100%" height="84%"/>
+      </a>
     </div>
   </div>
   <!-- LINK CONTAINER -->
@@ -116,46 +119,37 @@ hideInMainNav: true
       <h2>Endeavors</h2>
       <p class="pt-2">
         Sometimes I write code. Sometimes I play guitar. Not at the same time, though.
-        <br />
-        <br />
-        <a href="https://www.linkedin.com/in/etuovila" class="btn btn-outline-light"><i class=" fa-brands fa-linkedin
-          fa-lg"></i></a>
-        <a href=" https://github.com/only-devices/" class="btn btn-outline-light"><i
-            class="fa-brands fa-github fa-lg"></i></a>
-        <a href="https://hardcover.app/@onlydevices" class="btn btn-outline-light"><i
-            class="fa-solid fa-book fa-lg"></i>
+        <br/> <br/>
+        <a href="https://www.linkedin.com/in/etuovila" class="btn btn-outline-light">
+          <i class=" fa-brands fa-linkedin
+                                                                      fa-lg"></i>
         </a>
-        <a href="https://soundcloud.com/only_devices" class="btn btn-outline-light"><i
-            class="fa-brands fa-soundcloud fa-lg"></i>
+        <a href=" https://github.com/only-devices/" class="btn btn-outline-light">
+          <i class="fa-brands fa-github fa-lg"></i>
+        </a>
+        <a href="https://hardcover.app/@onlydevices" class="btn btn-outline-light">
+          <i class="fa-solid fa-book fa-lg"></i>
+        </a>
+        <a href="https://soundcloud.com/only_devices" class="btn btn-outline-light">
+          <i class="fa-brands fa-soundcloud fa-lg"></i>
         </a>
       </p>
     </div>
   </div>
-</div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="infoModalLabel">Placeholder title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="mb-4 bg-light rounded-3">
-        <div class="container-fluid py-2">
-          <div class="modal-body">Placeholder content</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div></div><!-- Modal --><div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="infoModalLabel">Placeholder title</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="mb-4 bg-light rounded-3">
+      <div class="container-fluid py-2">
+        <div class="modal-body">Placeholder content</div>
       </div>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
   </div>
-</div>
-</div>
-</div>
-
-<div class="row mt-3">
-</div>
-
-<!-- for debug: {{ site | dump }} {{page | dump }} {{meta | dump}}-->
+</div></div></div></div><div class="row mt-3"></div><!-- for debug: {{ site | dump }} {{page | dump }} {{meta | dump}}-->

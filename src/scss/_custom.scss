@@ -5,6 +5,11 @@ body {
   display: block !important;
 }
 
+header {
+  background-color: inherit;
+  color: inherit;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -39,29 +44,31 @@ a:hover {
   /* Change to your desired hover color */
 }
 
-/* Dark mode styling */
-.dark {
-  color: #f9f9f9 !important;
-  background-color: #222 !important;
-  border-color: #f9f9f9 !important;
+/* NEW Dark Mode styling */
+body,
+header * {
+  transition:
+    background-color 0.3s ease
 }
 
-/* The switch - the box around the slider */
-.switch {
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.theme-switch {
   position: relative;
   display: inline-block;
-  width: 48px;
-  height: 26px;
+  width: 14px;
+  height: 24px;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
+.theme-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -69,44 +76,71 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  background-color: none;
+  transition: .6s;
+  border-radius: 34px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 22px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  height: 26px;
+  width: 26px;
+  background-color: none;
+  transition: .6s;
+  border-radius: 50%;
 }
 
 input:checked+.slider {
-  background-color: orangered !important;
-}
-
-input:focus+.slider {
-  box-shadow: 0 0 1px orangered !important;
+  background-color: none;
 }
 
 input:checked+.slider:before {
-  -webkit-transform: translateX(22px);
-  -ms-transform: translateX(22px);
-  transform: translateX(22px);
+  transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 22px;
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  font-size: 20px;
 }
 
-.slider.round:before {
-  border-radius: 50%;
+.moon {
+  left: 0px;
+}
+
+.sun {
+  right: 0px;
+  opacity: 0;
+}
+
+input:checked+.slider .moon {
+  opacity: 0;
+}
+
+input:checked+.slider .sun {
+  opacity: 1;
+}
+
+/* Keep dark mode toggle in upper right corner always */
+.float-end {
+  position: absolute;
+  max-width: 30%;
+  top: 40%;
+  right: 1%;
+  z-index: 1000;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Keep dark mode toggle in upper right corner always */
+@media (max-width: 768px) {
+  .float-end {
+    top: 27%;
+    right: 10%;
+  }
 }
 
 .wave {
@@ -150,6 +184,7 @@ input:checked+.slider:before {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+
 }
 
 /* for bootstrap-icons (svg) */

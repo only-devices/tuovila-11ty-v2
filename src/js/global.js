@@ -41,53 +41,37 @@ function triggerModal(dynModalTitle, dynModalBody) {
 }
 
 /* ---- Dark mode ---- */
-var darkMode = window.sessionStorage.getItem('darkMode');
 
-function lightsOn() {
-    document.querySelector('input[id="mode-toggle"]').checked = false;
-    document.querySelector('.switch-label').innerText = 'Lights are on';
-}
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+const navElements = document.querySelectorAll('[class^="nav"]');
 
-function lightsOff() {
-    document.querySelector('input[id="mode-toggle"]').checked = true;
-    document.querySelector('.switch-label').innerText = 'Lights are off';
-}
-
-if (!darkMode) {
-    darkMode = false;
-    lightsOn();
-}
-else if (darkMode === "true") {
-    darkMode = true;
-    lightsOff();
-}
-else {
-    darkMode = false;
-    lightsOn();
-}
-mode();
-// Unhide page after darkMode config is processed to solve page flicker
-document.body.classList.remove("fade");
-
-function darkToggle() {
-    toggle();
-    mode();
+function setDarkMode() {
+    body.classList.toggle('dark-mode');
+    navElements.forEach(i => {
+        i.classList.toggle("navbar-dark");
+    });
 }
 
-function mode() {
-    if (darkMode || darkMode) {
-        document.querySelectorAll('*').forEach(i => { i.classList.add("dark") });
-        lightsOff();
+darkModeToggle.addEventListener('click', () => {
+    setDarkMode();
+    // Update aria-label for accessibility
+    if (body.classList.contains('dark-mode')) {
+        darkModeToggle.setAttribute('aria-label', 'Toggle light mode');
+    } else {
+        darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
     }
-    else {
-        document.querySelectorAll('*').forEach(i => { i.classList.remove("dark") });
-        lightsOn();
-    }
-}
 
-function toggle() {
-    darkMode = !darkMode;
-    window.sessionStorage.setItem('darkMode', darkMode);
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+});
+
+// Check for saved user preference
+const savedDarkMode = localStorage.getItem('darkMode');
+
+if (savedDarkMode === 'true') {
+    setDarkMode();
+    darkModeToggle.setAttribute('aria-label', 'Toggle light mode');
 }
 
 /* ---- UNIBOX ---- */

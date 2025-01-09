@@ -1,19 +1,21 @@
-<div class="container py-4">
-  <header class="pb-1 mb-4">
-    <nav class="navbar navbar-expand-lg navbar-light">
+<div class="container">
+  <header>
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a href="{{ '/' | url }}" style="text-decoration: none;">
           <img src="/assets/images/avatar.png" class="img-avatar" height="80px" alt="avatar"></img>
-          <span class="text-dark p-1">{{ site.title }}</span>
+          <span class="p-1">{{ site.title }}</span>
         </a>
-        <div class="navbar-collapse" id="navbarNav" style="padding-right: 10px;">{% include "navigation.njk" %}</div>
+        <div class="navbar-collapse" id="navbarNav" style="padding-right: 20px;">{% include "navigation.njk" %}</div>
         <div class="float-end">
-          <label for="mode-toggle" class="switch" aria-label="Dark Mode Toggle">
-            <input id="mode-toggle" type="checkbox" onclick="darkToggle()">
-            <span class="slider round"></span>
+          <label class="theme-switch" for="darkModeToggle">
+            <input type="checkbox" id="darkModeToggle"/>
+            <div class="slider round">
+              <i class="icon moon fa-solid fa-moon fa-lg"></i>
+              <i class="icon sun fa-solid fa-sun fa-lg" style="color: #FFD43B;"></i>
+            </div>
           </label>
         </div>
-        <span class="switch-label" style="padding-left: 6px; padding-right: 2px;"></span>
       </div>
     </nav>
   </header>
