@@ -1,9 +1,9 @@
 {
-    "editor.formatOnSave": true,
-    "emmet.includeLanguages": {
-      "njk": "html"
-    },
-    "files.associations": {
-      "*.njk": "html"
-    }
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "njk": "html"
+  },
+  "files.associations": {
+    "*.njk": "njk"
   }
+}

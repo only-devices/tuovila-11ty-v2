@@ -1,55 +1,68 @@
 ---
 meta:
-  lang: en
-  title: laboratory
-  description: 🧪🧪🧪
+lang: en
+title: laboratory
+description: 🧪🧪🧪
 layout: base
 eleventyNavigation:
   key: the lab
-  hideInMainNav: false
+  parent: choose your own adventure
 ---
 
-<div class="row align-items-md-stretch">
+<div
+  class="row align-items-md-stretch">
   <!--- Contentsquare --->
   <div class="col-md-4 mt-3">
     <div class="p-4 pb-3 text-dark rounded-3 bg-light">
       <h4 class="pt-2 pb-2" style="border-bottom: 2px solid darkblue;">Contentsquare</h4>
-      <div class="mt-4">
-      <!--- Unibox --->
-      <h5 class="p-2">🧪 Unibox</h5>
-      <div class="m-3 pt-2 pb-2">
-        <input id="unibox-input" type="text" placeholder="Anything here" title="Enter anything here"/>
-        <select id="unibox-select" type="select">
-          <option value="ui">User Identifier</option>
-          <option value="dv">Dynamic Variable</option>
-          <option value="cv">Custom Variable</option>
-          <option value="pe">Page Event</option>
-          <option value="heapuser">Identify Heap User</option>
-        </select>
-        <br/><br/>
-        <button class="btn btn-sm btn-outline-dark" onclick="unibox()">Unibox Go!</button>
-        <br/><br/>
+      <div
+        class="mt-4">
+        <!--- Unibox --->
+        <h5 class="p-2">🧪 Unibox</h5>
+        <div class="m-3 pt-2 pb-2">
+          <input id="unibox-input" type="text" placeholder="Anything here" title="Enter anything here"/>
+          <select id="unibox-select" type="select">
+            <option value="ui">User Identifier</option>
+            <option value="dv">Dynamic Variable</option>
+            <option value="cv">Custom Variable</option>
+            <option value="pe">Page Event</option>
+            <option value="heapuser">Identify Heap User</option>
+          </select>
+          <br/><br/>
+          <button class="btn btn-sm btn-outline-dark" onclick="unibox()">Unibox Go!</button>
+          <br/><br/>
+        </div>
+        <!--- CS Errors --->
+        <h5 class="p-2">⚠️ Errors</h5>
+        <div class="m-3 pt-2 pb-2">
+          <button class="btn btn-outline-dark" onclick="setError('js')">JS Error</button>
+          <button class="btn btn-outline-dark" onclick="setError('api')">API Error</button>
+          <button class="btn btn-outline-dark" onclick="setError('custom')">Custom Error</button>
+        </div>
+        <!--- CS Session Replay --->
+        <h5 class="p-2">🎥 Session Replay</h5>
+        <div class="m-3 pt-2 pb-2">
+          <button class="btn btn-outline-dark" onclick="triggerRecording('ETP')">ETR (Page) event</button>
+          <button class="btn btn-outline-dark align-right" onclick="triggerRecording('ETS')">ETR (Session) event</button>
+          <br/><br/> <input
+            id="excludePage-input"
+            type="text"
+            placeholder="Exclude regex here"
+            title="Enter Session Replay exclude regex pattern"/>
+          <button
+            class="btn btn-sm btn-outline-dark"
+            onclick="excludeCsRecording(document.getElementById('excludePage-input').value)">Set Replay Exclusion
+                        Rule</button>
+          <br/><br/> <input
+            id="encryptEls-input"
+            type="text"
+            placeholder="CSS selectors here"
+            title="Enter Controlled Exposure element CSS selectors"/>
+          <button
+            class="btn btn-sm btn-outline-dark"
+            onclick="setEncryptedCaptures(document.getElementById('encryptEls-input').value)">Set Controlled Exposure Rule</button>
+        </div>
       </div>
-      <!--- CS Errors --->
-      <h5 class="p-2">⚠️ Errors</h5>
-      <div class="m-3 pt-2 pb-2">
-        <button class="btn btn-outline-dark" onclick="setError('js')">JS Error</button>
-        <button class="btn btn-outline-dark" onclick="setError('api')">API Error</button>
-        <button class="btn btn-outline-dark" onclick="setError('custom')">Custom Error</button>
-      </div>
-      <!--- CS Session Replay --->
-      <h5 class="p-2">🎥 Session Replay</h5>
-      <div class="m-3 pt-2 pb-2">
-        <button class="btn btn-outline-dark" onclick="triggerRecording('ETP')">ETR (Page) event</button>
-        <button class="btn btn-outline-dark align-right" onclick="triggerRecording('ETS')">ETR (Session) event</button>
-        <br/><br/>
-        <input id="excludePage-input" type="text" placeholder="Exclude regex here" title="Enter Session Replay exclude regex pattern"/>
-        <button class="btn btn-sm btn-outline-dark" onclick="excludeCsRecording(document.getElementById('excludePage-input').value)">Set Replay Exclusion Rule</button>
-        <br/><br/>
-        <input id="encryptEls-input" type="text" placeholder="CSS selectors here" title="Enter Controlled Exposure element CSS selectors"/>
-        <button class="btn btn-sm btn-outline-dark" onclick="setEncryptedCaptures(document.getElementById('encryptEls-input').value)">Set Controlled Exposure Rule</button>
-      </div>
-    </div>
     </div>
   </div>
   <!--- Form --->
@@ -58,57 +71,66 @@ eleventyNavigation:
       <h4 class="pt-2 pb-2" style="border-bottom: 2px solid lightgrey;">Let's play leadgen!</h4>
       <div class="mt-4">
         <form name="leadGenMain" action="{{ '/pages/explore/order-confirmed' | url }}" method="POST" data-netlify="true">
-          <label htmlFor="firstName">First name
-            <div><input type="text" id="firstName-input" title="Controlled Exposure is enabled on this field" name="firstName" required={true} data-cs-encrypt /></div><br />
+          <label htmlfor="firstName">First name
+            <div><input
+                type="text"
+                id="firstName-input"
+                title="Controlled Exposure is enabled on this field"
+                name="firstName"
+                required={true}
+                data-cs-encrypt/></div><br/>
           </label>
-          <label htmlFor="lastName" style="padding-left:1rem;">Last name
-            <div><input type="text" id="lastName-input" title="Controlled Exposure is enabled on this field" name="lastName" required={true} data-cs-encrypt /></div><br />
-          </label>
-          <br/>
-          <label htmlFor="jobTitle">Job Title
-            <div><input type="text" id="jobTitle-input" name="jobTitle" /></div><br />
-          </label>
-          <label htmlFor="fraudBox" style="padding-left:1rem;">Are you a robot?
-            <div><input type="checkbox" id="fraudBox-input" name="fraudBox" /></div><br />
-          </label>
-          <br/>
-          <label htmlFor="companySize">Company Size
-            <div><select name="quantity id="quantity-input" style="width: 145.5px;">
-                    <option value="not very many">not very many</option>
-                    <option value="some">some</option>
-                    <option value="ugh too many">RIF needed</option>
-                  </select>
-            </div><br />
-          </label>
-          <label htmlFor="oneMoreBox" style="padding-left:1rem;">Why aren't you a robot?
-            <div><input type="checkbox" id="oneMoreBox-input" name="oneMoreBox" /></div><br />
+          <label htmlfor="lastName" style="padding-left:1rem;">Last name
+            <div><input
+                type="text"
+                id="lastName-input"
+                title="Controlled Exposure is enabled on this field"
+                name="lastName"
+                required={true}
+                data-cs-encrypt/></div><br/>
           </label>
           <br/>
-          <div><input class="btn btn-lg btn-outline-light" type="submit" value="Submit" /></div>
+          <label htmlfor="jobTitle">Job Title
+            <div><input type="text" id="jobTitle-input" name="jobTitle"/></div><br/>
+          </label>
+          <label htmlfor="fraudBox" style="padding-left:1rem;">Are you a robot?
+            <div><input type="checkbox" id="fraudBox-input" name="fraudBox"/></div><br/>
+          </label>
+          <br/>
+          <label htmlfor="companySize">Company Size
+            <div>
+              <select name="quantity id=" quantity-input" style=" width: 145.5px;">
+                <option value="not very many">not very many</option>
+                <option value="some">some</option>
+                <option value="ugh too many">RIF needed</option>
+              </select>
+            </div><br/>
+          </label>
+          <label htmlfor="oneMoreBox" style="padding-left:1rem;">Why aren't you a robot?
+            <div><input type="checkbox" id="oneMoreBox-input" name="oneMoreBox"/></div><br/>
+          </label>
+          <br/>
+          <div><input class="btn btn-lg btn-outline-light" type="submit" value="Submit"/></div>
         </form>
       </div>
     </div>
   </div>
 </div>
 <!-- Modal -->
-      <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="infoModalLabel">Placeholder title</h5>
-            </div>
-              <div class="mb-4 bg-light rounded-3">
-                <div class="container-fluid py-2">
-                  <div class="modal-body">Placeholder content</div>
-                </div>
-              </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
-            </div>
-          </div>
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">Placeholder title</h5>
+      </div>
+      <div class="mb-4 bg-light rounded-3">
+        <div class="container-fluid py-2">
+          <div class="modal-body">Placeholder content</div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
       </div>
     </div>
   </div>
-<div class="row mt-3">
-</div>
+</div></div></div><div class="row mt-3"></div>
