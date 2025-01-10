@@ -1,5 +1,19 @@
 [
   {
+    "title": "Futuristic Violence and Fancy Suits",
+    "contributors": [
+      {
+        "author": {
+          "name": "David  Wong",
+          "slug": "david-wong-48c7295c-6adf-4bda-90e9-8308fbfdce2b"
+        }
+      }
+    ],
+    "rating": 4.5,
+    "image": "https://assets.hardcover.app/edition/28676647/9242855-L.jpg",
+    "bookUrl": "https://hardcover.app/books/futuristic-violence-and-fancy-suits"
+  },
+  {
     "title": "It Takes What It Takes",
     "contributors": [
       {
@@ -52,19 +66,5 @@
     "rating": 3,
     "image": "https://assets.hardcover.app/external_data/60383918/101c748fd05fa995974e005d09801036869fc611.jpeg",
     "bookUrl": "https://hardcover.app/books/shock-induction"
-  },
-  {
-    "title": "Heroes of the Frontier",
-    "contributors": [
-      {
-        "author": {
-          "name": "Dave Eggers",
-          "slug": "dave-eggers-07bed4a2-ef99-49d5-b3e8-1f7e5304a788"
-        }
-      }
-    ],
-    "rating": 4,
-    "image": "https://assets.hardcover.app/edition/30402709/content.jpeg",
-    "bookUrl": "https://hardcover.app/books/heroes-of-the-frontier"
   }
 ]
