@@ -6,3 +6,5 @@
 /mix-manifest.json
 # eleventy-img output directory
 /img
+# dotenv file
+.env
