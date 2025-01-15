@@ -17,6 +17,16 @@
       })(window, document, 'script', 'dataLayer', 'GTM-K4GTT8V');
     </script>
     <!-- End Google Tag Manager -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const starRatings = document.querySelectorAll('.star-rating');
+  starRatings.forEach(rating => {
+    const ratingValue = parseFloat(rating.getAttribute('data-rating'));
+    const filledWidth = (ratingValue / 5) * 100;
+    rating.style.clipPath = `inset(0 ${100 - filledWidth}% 0 0)`;
+  });
+});
+    </script>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{{ site.title }} - {{ title or meta.title }}</title>

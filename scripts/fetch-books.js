@@ -28,6 +28,9 @@ const query = `
         }
         slug
         title
+        images {
+          url
+        }
       }
     }
   }
@@ -47,12 +50,12 @@ async function fetchBooks() {
     })
       .then((response) => response.json())
       .then(({ data }) => {
-
-        const books = data.me[0].user_books.slice(0, 4).map(el => ({
+        console.log(data);
+        const books = data.me[0].user_books.slice(0, 10).map(el => ({
           title: el.book.title,
           contributors: el.book.contributions,
           rating: el.rating || 'N/A',
-          image: el.book.image.url || 'https://via.placeholder.com/100',
+          image: el.book.images?.[0]?.url || el.book.image?.url || '',
           bookUrl: 'https://hardcover.app/books/' + el.book.slug,
           review: el.review_raw,
         }));

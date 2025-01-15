@@ -1,5 +1,39 @@
 [
   {
+    "title": "Discipline Equals Freedom: Field Manual Mk1-MOD1",
+    "contributors": [
+      {
+        "author": {
+          "name": "Jocko Willink",
+          "slug": "jocko-willink"
+        }
+      }
+    ],
+    "rating": "N/A",
+    "image": "https://assets.hardcover.app/books/924697/8029541702138787.jpg",
+    "bookUrl": "https://hardcover.app/books/discipline-equals-freedom-field-manual-mk1-mod1"
+  },
+  {
+    "title": "The Obesity Code",
+    "contributors": [
+      {
+        "author": {
+          "name": "Jason Fung",
+          "slug": "jason-fung"
+        }
+      },
+      {
+        "author": {
+          "name": "Timothy Noakes",
+          "slug": "timothy-noakes"
+        }
+      }
+    ],
+    "rating": 5,
+    "image": "https://assets.hardcover.app/edition/2080768/12398696-L.jpg",
+    "bookUrl": "https://hardcover.app/books/the-obesity-code"
+  },
+  {
     "title": "Futuristic Violence and Fancy Suits",
     "contributors": [
       {
@@ -9,8 +43,8 @@
         }
       }
     ],
-    "rating": 4.5,
-    "image": "https://assets.hardcover.app/edition/28676647/9242855-L.jpg",
+    "rating": 4,
+    "image": "https://assets.hardcover.app/books/31210/9242855-L.jpg",
     "bookUrl": "https://hardcover.app/books/futuristic-violence-and-fancy-suits"
   },
   {
@@ -30,7 +64,7 @@
       }
     ],
     "rating": 4,
-    "image": "https://assets.hardcover.app/edition/24676314/9279425-L.jpg",
+    "image": "https://assets.hardcover.app/books/445575/9279425-L.jpg",
     "bookUrl": "https://hardcover.app/books/it-takes-what-it-takes"
   },
   {
@@ -50,7 +84,7 @@
       }
     ],
     "rating": 4,
-    "image": "https://assets.hardcover.app/edition/11427151/10153705-L.jpg",
+    "image": "https://assets.hardcover.app/books/439671/10153705-L.jpg",
     "bookUrl": "https://hardcover.app/books/super-thinking"
   },
   {
@@ -66,5 +100,67 @@
     "rating": 3,
     "image": "https://assets.hardcover.app/external_data/60383918/101c748fd05fa995974e005d09801036869fc611.jpeg",
     "bookUrl": "https://hardcover.app/books/shock-induction"
+  },
+  {
+    "title": "The Comfort Crisis: Embrace Discomfort to Reclaim Your Wild, Happy, Healthy Self",
+    "contributors": [
+      {
+        "author": {
+          "name": "Michael Easter",
+          "slug": "michael-easter"
+        }
+      }
+    ],
+    "rating": 5,
+    "image": "https://assets.hardcover.app/external_data/59511291/69af2937c5358edccc2455106750c87ba312eee9.jpeg",
+    "bookUrl": "https://hardcover.app/books/the-comfort-crisis"
+  },
+  {
+    "title": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life",
+    "contributors": [
+      {
+        "author": {
+          "name": "Mark Manson",
+          "slug": "mark-manson"
+        }
+      }
+    ],
+    "rating": 4,
+    "image": "https://assets.hardcover.app/books/242987/8231990-L.jpg",
+    "bookUrl": "https://hardcover.app/books/the-subtle-art-of-not-giving-a-f-ck"
+  },
+  {
+    "title": "The Long Walk",
+    "contributors": [
+      {
+        "author": {
+          "name": "Richard Bachman",
+          "slug": "richard-bachman"
+        }
+      },
+      {
+        "author": {
+          "name": "Stephen King",
+          "slug": "stephen-king"
+        }
+      }
+    ],
+    "rating": 3,
+    "image": "https://assets.hardcover.app/books/149896/8565833-L.jpg",
+    "bookUrl": "https://hardcover.app/books/the-long-walk"
+  },
+  {
+    "title": "Soundtracks: The Surprising Solution to Overthinking",
+    "contributors": [
+      {
+        "author": {
+          "name": "Jon Acuff",
+          "slug": "jon-acuff"
+        }
+      }
+    ],
+    "rating": 3,
+    "image": "https://assets.hardcover.app/external_data/59710547/eaed523225ca11951b4bbd5b2f0ed95e5d6d9f66.jpeg",
+    "bookUrl": "https://hardcover.app/books/soundtracks"
   }
 ]
