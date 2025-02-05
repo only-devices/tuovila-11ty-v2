@@ -2,7 +2,7 @@ name: Daily Netlify Build
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight UTC
+    - cron: "0 6 * * *" # Runs daily at midnight UTC
 
 jobs:
   trigger-netlify-build:
